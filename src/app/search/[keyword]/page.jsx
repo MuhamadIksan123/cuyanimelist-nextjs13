@@ -3,8 +3,11 @@ import Header from '@/components/AnimeList/Header';
 
 const Page = async ({ params }) => {
   const { keyword } = params;
+
+  const decodedKeyword = decodeURI(keyword);
+
   const response = await fetch(
-    `${process.env.NEXT_PUBLIC_API_BASE_URL}/anime?q=${keyword}`
+    `${process.env.NEXT_PUBLIC_API_BASE_URL}/anime?q=${decodedKeyword}`
   );
   const topAnime = await response.json();
 
@@ -13,7 +16,7 @@ const Page = async ({ params }) => {
       {/* Anime terpopuler */}
       <section>
         <Header
-          title={`Pencarian Untuk ${keyword}...`}
+          title={`Pencarian Untuk ${decodedKeyword}...`}
         />
         <AnimeList api={topAnime} />
       </section>
