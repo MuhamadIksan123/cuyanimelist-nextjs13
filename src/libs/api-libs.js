@@ -6,5 +6,16 @@ export const getAnimeResponse = async(resource, query) => {
 
 export const getNestedAnimeResponse = async(resource, objectPropery) => {
     const response = await getAnimeResponse(resource);
-    return response.data.flatMap(item => item.entry)
+    return response.data.flatMap((item) => item[objectPropery]);
+}
+
+export const reproduce = (data, gap) => {
+    const first = ~~(Math.random() * (data.length - gap) + 1); // 10 .. ~~ == math.floor
+    const last = first + gap; // 15
+
+    const response = {
+        data: data.slice(first, last)
+    }
+
+    return response;
 }

@@ -1,6 +1,6 @@
 import AnimeList from '../components/AnimeList';
 import Header from '@/components/AnimeList/Header';
-import { getAnimeResponse, getNestedAnimeResponse } from '../libs/api-libs';
+import { getAnimeResponse, getNestedAnimeResponse, reproduce } from '../libs/api-libs';
 
 const Page = async () => {
   // const response = await fetch(
@@ -13,7 +13,7 @@ const Page = async () => {
     'recommendations/anime',
     'entry'
   );
-  recomendedAnime = { data: recomendedAnime.slice(0, 8) };
+  recomendedAnime = reproduce(recomendedAnime, 5);
 
   return (
     <>
