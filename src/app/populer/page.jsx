@@ -1,14 +1,14 @@
-"use client"
+'use client';
 
 import { useEffect, useState } from 'react';
 import HeaderMenu from '@/components/utilities/HeaderMenu';
 import Pagination from '@/components/utilities/Pagination';
 import AnimeList from '@/components/AnimeList';
-import { getAnimeResponse } from '../libs/api-libs';
+import { getAnimeResponse } from '../../libs/api-libs';
 
 const Page = () => {
   const [page, setPage] = useState(1);
-  const [topAnime, setTopAnime] = useState([])
+  const [topAnime, setTopAnime] = useState([]);
 
   const fetchData = async () => {
     // const response = await fetch(
@@ -18,14 +18,11 @@ const Page = () => {
 
     const populerAnime = await getAnimeResponse('top/anime', `page=${page}`);
     setTopAnime(populerAnime);
-  }
+  };
 
   useEffect(() => {
     fetchData();
-  }, [page])
-
-
-  
+  }, [page]);
 
   return (
     <>
