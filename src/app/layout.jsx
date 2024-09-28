@@ -14,7 +14,7 @@ const geistMono = localFont({
 });
 
 export const metadata = {
-  title: "CuyAnimeList",
+  title: "SanAnimeList",
   description: "Website Anime Indonesia",
 };
 
